@@ -1,0 +1,14 @@
+#create amazonlinux ec2 with t2.medium and 30 gb of ebs with port 8081 
+
+sudo su -
+yum install java -y
+cd /opt/
+wget https://download.sonatype.com/nexus/3/nexus-unix-x86-64-3.79.0-09.tar.gz
+tar -xvf nexus-unix-x86-64-3.79.0-09.tar.gz
+useradd nexus
+mv nexus-3* nexus
+chown -R nexus:nexus nexus sonatype-work
+cd /opt/nexus/bin
+sh nexus start
+
+Access tomcat ---> publicip:8081
